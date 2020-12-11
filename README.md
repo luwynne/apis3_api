@@ -2,8 +2,10 @@
 
 <h3>Instalação</h3>
 <p>
-composer install
-composer require maatwebsite/excel</p>
+composer install<br>
+composer require maatwebsite/excel<br>
+php artisan migrate
+</p>
 
 <h3>Sinopse</h3>
 <p>
