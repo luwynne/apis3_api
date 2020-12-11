@@ -2,18 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/products', [ProductController::class, 'importProducts']); // importar products da planilha
+Route::get('/products', [ProductController::class, 'getProducts']); // ver lista de produtos em JSON
+Route::get('/products/{product}', [ProductController::class, 'getProduct']); // ver detalhes de um produto em JSON   
+Route::delete('/products/{product}', [ProductController::class, 'deleteProduct']); // deletar produto  
+Route::get('/products_status', [ProductController::class, 'getProductsImportStatus']); // acompanhar status do ultimo import
